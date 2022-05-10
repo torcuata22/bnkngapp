@@ -15,6 +15,24 @@ class User:
         self.password = password
         print("Your new password is: ", password)
         
+class BankUser(User):
+    def __init__(self, name, pin, password):
+        super().__init__(name, pin, password)
+        self.balance = 0
+        
+    def show_balance(self):
+        print (self.name, "has an account balance of ", self.balance)
+    
+    def withdraw(self, withdrawal):
+        self.balance -= withdrawal
+    
+    def deposit (self, deposit):
+        self.balance += self.deposit
+        
+
+    
+    
+    
         
         
         
@@ -31,3 +49,7 @@ class User:
 #user1.change_pin("4321")
 #user1.change_password("newpassword")
 #print(user1.name, user1.pin, user1.password)
+
+#Test code for BankUser:
+#bankuser1 = BankUser("Bob", "1234", "password")
+#print(bankuser1.name, bankuser1.pin, bankuser1.password, bankuser1.balance)
