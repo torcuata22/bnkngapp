@@ -38,6 +38,18 @@ class BankUser(User):
         amount = float(input("Enter amount to be deposited: "))
         self.balance += amount
         print("\n Amount Deposited:", amount)
+        
+    def transfer_money(self, recipient):
+        pin = int(input("You need to enter your pin number to make a transfer"))
+        if self.pin == pin:
+            transfer = float(input("How much would you like to transfer?"))
+            self.balance -= transfer
+            recipient.balance += transfer
+            print("$", transfer, "has been transferred out of your account ")
+            return True
+        else:
+            print("Wrong pin. Try again")
+            return False
 
     
     
@@ -65,6 +77,21 @@ class BankUser(User):
 
 #Test code for BankUser methods:
 bankuser1 = BankUser("Mary", "4321", "mypassword")
-print(bankuser1.show_balance())
-print(bankuser1.deposit())
-print(bankuser1.withdraw())
+#print(bankuser1.show_balance())
+#print(bankuser1.deposit())
+#print(bankuser1.withdraw())
+
+#Test code for Transfer
+bankUser1 = BankUser("Bob", 1234, "password")
+print(bankUser1.name, bankUser1.pin, bankUser1.password)
+bankUser1.deposit()
+bankUser1.show_balance()
+
+bankUser2 = BankUser("Mary", 4321, "another password")
+print(bankUser2.name, bankUser1.pin, bankUser2.password)
+bankUser2.deposit()
+bankUser2.show_balance()
+
+bankUser1.transfer_money(bankUser2)
+bankUser1.show_balance()
+bankUser2.show_balance()
