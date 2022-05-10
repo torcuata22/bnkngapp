@@ -4,6 +4,16 @@ class User:
         self.pin = pin
         self.password = password
         
+    def change_name(self, name):
+        self.name = name
+
+    def change_pin(self, pin):
+        self.pin = pin
+        print("Your pin has been changed to: ", pin)
+
+    def change_password(self, password):
+        self.password = password
+        print("Your new password is: ", password)
         
         
         
