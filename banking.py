@@ -26,3 +26,8 @@ class User:
 # Test code for User:
 #user1 = User("Bob", "1234", "password")
 #print(user1.name, user1.pin, user1.password)
+#Test code for change_name, change_pin, change_password
+#user1.change_name("Bobby")
+#user1.change_pin("4321")
+#user1.change_password("newpassword")
+#print(user1.name, user1.pin, user1.password)
