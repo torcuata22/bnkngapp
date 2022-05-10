@@ -23,12 +23,21 @@ class BankUser(User):
     def show_balance(self):
         print (self.name, "has an account balance of ", self.balance)
     
-    def withdraw(self, withdrawal):
-        self.balance -= withdrawal
-    
-    def deposit (self, deposit):
-        self.balance += self.deposit
         
+    def withdraw(self):
+        amount = float(input("Enter amount to be withdrawn: "))
+        if self.balance >= amount:
+            self.balance -= amount
+            print("\n You Withdrew:", amount)
+            print("You have ", self.balance, "left")
+        else:
+            print("\n Insufficient balance  ")
+    
+    
+    def deposit(self):
+        amount = float(input("Enter amount to be deposited: "))
+        self.balance += amount
+        print("\n Amount Deposited:", amount)
 
     
     
@@ -53,3 +62,9 @@ class BankUser(User):
 #Test code for BankUser:
 #bankuser1 = BankUser("Bob", "1234", "password")
 #print(bankuser1.name, bankuser1.pin, bankuser1.password, bankuser1.balance)
+
+#Test code for BankUser methods:
+bankuser1 = BankUser("Mary", "4321", "mypassword")
+print(bankuser1.show_balance())
+print(bankuser1.deposit())
+print(bankuser1.withdraw())
